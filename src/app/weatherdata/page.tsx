@@ -13,7 +13,9 @@ export default function Display(){
     const [city,setcity]=useState("");
     const [fetcheddata,setFetcheddata]=useState<Weatherdata | null> (null);
 
-    const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+    // Edited for code testing, const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+    const API_KEY = "0eedee69496729ffb66b116c9e55ed6a";
+
 
 
         const fetchweather=async()=>{
@@ -21,8 +23,6 @@ export default function Display(){
         if (!response.ok) throw new Error("City not found");
         const forecast=await response.json();
         
-        
-
         const finaldata:Weatherdata={
             temperature:`${forecast.main.temp}`,
             min_temperature:`${forecast.main.temp_min}`,
@@ -48,11 +48,11 @@ export default function Display(){
         placeholder="Enter City Name"
         value={city}
         onChange={(e) => setcity(e.target.value)}
-        className="w-72 h-10 px-4 text-xl text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+        className="w-72 h-10 px-4 text-xl text-black rounded-lg  "
       />
       <button
         onClick={fetchweather}
-        className="w-48 h-10 bg-green-500 text-white text-xl rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+        className="w-48 h-10 bg-green-500 text-white text-xl rounded-lg hover:bg-green-600"
       >
         Submit
       </button>
